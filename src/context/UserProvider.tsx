@@ -1,4 +1,11 @@
-import React, { createContext, useEffect, useState, useMemo } from "react";
+import {
+  createContext,
+  useEffect,
+  useState,
+  useMemo,
+  type FC,
+  type ReactNode,
+} from "react";
 import authgear from "@authgear/web";
 
 interface UserContextValue {
@@ -11,12 +18,10 @@ export const UserContext = createContext<UserContextValue>({
 });
 
 interface UserContextProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const UserContextProvider: React.FC<UserContextProviderProps> = ({
-  children,
-}) => {
+const UserContextProvider: FC<UserContextProviderProps> = ({ children }) => {
   // By default the user is not logged in
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 

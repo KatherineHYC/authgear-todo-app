@@ -1,5 +1,4 @@
-// src/components/TodoList.tsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, type FC, type FormEvent } from "react";
 
 interface Todo {
   id: string;
@@ -10,7 +9,7 @@ interface Todo {
 
 const STORAGE_KEY = "authgear-todos";
 
-const TodoList: React.FC = () => {
+const TodoList: FC = () => {
   const [input, setInput] = useState("");
 
   // Load todos from localStorage
@@ -24,7 +23,7 @@ const TodoList: React.FC = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
   }, [todos]);
 
-  const addTodo = (e: React.FormEvent) => {
+  const addTodo = (e: FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
 

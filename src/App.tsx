@@ -1,10 +1,10 @@
-import React from "react";
+import { type FC } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import Home from "./Home";
 import AuthRedirect from "./AuthRedirect";
 import UserContextProvider from "./context/UserProvider";
 
-const App: React.FC = () => {
+const App: FC = () => {
   return (
     <UserContextProvider>
       <Router>

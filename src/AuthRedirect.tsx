@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, type FC } from "react";
 import { useNavigate } from "react-router";
 import authgear from "@authgear/web";
 
-const AuthRedirect: React.FC = () => {
+const AuthRedirect: FC = () => {
   const usedToken = useRef(false);
   const navigate = useNavigate();
 

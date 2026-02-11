@@ -1,9 +1,16 @@
-import React, { useEffect, useState, useCallback, useContext } from "react";
+import {
+  useEffect,
+  useState,
+  useCallback,
+  useContext,
+  type FC,
+  type MouseEvent,
+} from "react";
 import { UserContext } from "./context/UserProvider";
 import authgear, { Page, PromptOption, UserInfo } from "@authgear/web";
 import TodoList from "./components/TodoList";
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { isLoggedIn } = useContext(UserContext);
@@ -55,7 +62,7 @@ const Home: React.FC = () => {
       );
   }, []);
 
-  const openSettings = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+  const openSettings = useCallback((e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     authgear.open(Page.Settings);
   }, []);
@@ -122,7 +129,7 @@ const Home: React.FC = () => {
             <p className="text-slate-600 mb-8">Sign in to manage your tasks</p>
             <button
               onClick={startLogin}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-lg transition-colors shadow-sm"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-lg transition-colors shadow-sm cursor-pointer"
             >
               Sign In with Authgear
             </button>
