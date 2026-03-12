@@ -1,18 +1,11 @@
-import { type FC } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router";
-import Home from "./Home";
-import AuthRedirect from "./AuthRedirect";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 import UserContextProvider from "./context/UserProvider";
 
-const App: FC = () => {
+export const App = () => {
   return (
     <UserContextProvider>
-      <Router>
-        <Routes>
-          <Route path="/auth-redirect" element={<AuthRedirect />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Router>
+      <RouterProvider router={router} />
     </UserContextProvider>
   );
 };

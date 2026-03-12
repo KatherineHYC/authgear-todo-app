@@ -1,9 +1,9 @@
-import { useEffect, useRef, type FC } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import authgear from "@authgear/web";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 
-const AuthRedirect: FC = () => {
+const AuthRedirect = () => {
   const usedToken = useRef(false);
   const navigate = useNavigate();
 
@@ -12,7 +12,7 @@ const AuthRedirect: FC = () => {
       try {
         await authgear.finishAuthentication();
       } finally {
-        navigate("/");
+        navigate("/", { replace: true });
       }
     }
 
