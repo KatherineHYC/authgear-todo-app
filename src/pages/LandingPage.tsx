@@ -1,5 +1,4 @@
 import { useAuth } from "../context/useAuth";
-import Navbar from "../components/layout/Navbar";
 import { Navigate } from "react-router-dom";
 
 export const LandingPage = () => {
@@ -10,37 +9,27 @@ export const LandingPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <Navbar />
-      <main className="max-w-3xl mx-auto px-4 py-8">
-        <div className="text-center py-20">
-          <div className="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <svg
-              className="w-8 h-8 text-indigo-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
-          <h2 className="text-2xl font-semibold text-slate-800 mb-2">
-            Welcome to Todo App
-          </h2>
-          <p className="text-slate-600 mb-8">Sign in to manage your tasks</p>
-          <button
-            onClick={login}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-lg transition-colors shadow-sm cursor-pointer"
-          >
-            Get Started
-          </button>
-        </div>
-      </main>
+    <div className="text-center py-20">
+      <div className="flex items-center justify-center mx-auto mb-6">
+        <img
+          src="/illustration_checklist.svg"
+          alt="Todo List Logo"
+          className="object-contain w-64"
+        />
+      </div>
+      <h2 className="text-2xl font-semibold text-primary mb-2">
+        Organize Your Daily Life
+      </h2>
+      <p className="text-slate-600 mb-8">
+        The simplest way to track your tasks and goals.
+      </p>
+      <button
+        onClick={login}
+        className="relative overflow-hidden group bg-[#7D6340] hover:bg-[#644f33] text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200 shadow-sm cursor-pointer"
+      >
+        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out" />
+        <span className="relative">Start Planning</span>
+      </button>
     </div>
   );
 };
