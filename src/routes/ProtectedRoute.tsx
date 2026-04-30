@@ -1,9 +1,8 @@
-import { ReactNode } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 
-export const ProtectedRoute = ({ children }: { children: ReactNode }) => {
+export const ProtectedRoute = () => {
   const { isLoggedIn, isLoading } = useAuth();
 
   if (isLoading) {
@@ -15,5 +14,5 @@ export const ProtectedRoute = ({ children }: { children: ReactNode }) => {
     return <Navigate to="/" replace />;
   }
 
-  return <>{children}</>;
+  return <Outlet />;
 };
