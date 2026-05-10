@@ -1,4 +1,4 @@
-import { useAuth } from "../context/useAuth";
+import { useAuth } from "@/context/useAuth";
 import { TodoList } from "@/components/todo/TodoList";
 
 export const Dashboard = () => {

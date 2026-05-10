@@ -1,6 +1,6 @@
 import { RouterProvider } from "react-router";
 import { router } from "./routes";
-import UserContextProvider from "./context/UserProvider";
+import UserContextProvider from "@/context/UserProvider";
 
 export const App = () => {
   return (

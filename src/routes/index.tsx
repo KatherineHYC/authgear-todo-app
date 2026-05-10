@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router";
-import LandingPage from "../pages/LandingPage";
-import Dashboard from "../pages/Dashboard";
-import AuthRedirect from "../pages/AuthRedirect";
-import NotFound from "../pages/NotFound";
+import LandingPage from "@/pages/LandingPage";
+import Dashboard from "@/pages/Dashboard";
+import AuthRedirect from "@/pages/AuthRedirect";
+import NotFound from "@/pages/NotFound";
 import { ProtectedRoute } from "./ProtectedRoute";
-import MainLayout from "../components/layout/MainLayout";
+import MainLayout from "@/components/layout/MainLayout";
 
 export const router = createBrowserRouter([
   {

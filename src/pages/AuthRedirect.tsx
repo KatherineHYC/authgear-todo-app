@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
 import authgear from "@authgear/web";
-import LoadingSpinner from "../components/ui/LoadingSpinner";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 const AuthRedirect = () => {
   const usedToken = useRef(false);
