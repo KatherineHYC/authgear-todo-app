@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const NotFound = () => (
   <div className="min-h-screen flex items-center justify-center bg-slate-50">
