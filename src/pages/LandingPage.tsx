@@ -1,13 +1,19 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import { useAuth } from "@/context/useAuth";
-import { Navigate } from "react-router";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 export const LandingPage = () => {
   const { isLoggedIn, login, isLoading } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLoading && isLoggedIn) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [isLoading, isLoggedIn, navigate]);
 
-  if (!isLoading && isLoggedIn) {
-    return <Navigate to="/dashboard" replace />;
-  }
-
+  if (isLoading) return <LoadingSpinner />;
+  if (isLoggedIn) return null;
   return (
     <div className="text-center py-20">
       <div className="flex items-center justify-center mx-auto mb-6">

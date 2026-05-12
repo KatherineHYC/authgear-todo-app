@@ -23,7 +23,7 @@ export const UserContext = createContext<UserContextValue | null>(null);
 export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchUser = useCallback(async () => {
     setIsLoading(true);
@@ -39,7 +39,6 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   useEffect(() => {
-    // 監聽 Session 狀態
     authgear.delegate = {
       onSessionStateChange: (container) => {
         const authenticated = container.sessionState === "AUTHENTICATED";
@@ -49,21 +48,22 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
           fetchUser();
         } else {
           setUserInfo(null);
+          setIsLoading(false);
         }
       },
     };
 
-    // 處理頁面重新整理後的狀態恢復
     const currentSessionState = authgear.sessionState;
     const authenticated = currentSessionState === "AUTHENTICATED";
 
     setIsLoggedIn(authenticated);
 
-    // 如果已登入但尚未獲取資訊，則發起請求
-    if (authenticated && !userInfo) {
+    if (authenticated) {
       fetchUser();
+    } else {
+      setIsLoading(false);
     }
-  }, [fetchUser, userInfo]);
+  }, [fetchUser]);
 
   const login = useCallback(() => {
     authgear.startAuthentication({
