@@ -1,8 +1,11 @@
 import { useAuth } from "@/context/useAuth";
 import { TodoList } from "@/components/todo/TodoList";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 export const Dashboard = () => {
   const { userInfo } = useAuth();
+
+  if (!userInfo) return <LoadingSpinner />;
 
   return (
     <div>
@@ -11,7 +14,7 @@ export const Dashboard = () => {
           Hello ! {userInfo?.email?.split("@")[0] || "User"}
         </h2>
       </div>
-      <TodoList />
+      <TodoList userId={userInfo.sub} />
     </div>
   );
 };

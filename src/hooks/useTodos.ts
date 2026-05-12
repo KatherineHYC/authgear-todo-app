@@ -10,13 +10,18 @@ import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import type { Todo } from "@/types/todo";
 import type { DragEndEvent } from "@dnd-kit/core";
 
-const STORAGE_KEY = "authgear-todos";
+function getStorageKey(userId: string) {
+  return `authgear-todos:${userId}`;
+}
 
-export function useTodos() {
+export function useTodos(userId: string) {
+  const STORAGE_KEY = getStorageKey(userId);
+
   const [todos, setTodos] = useState<Todo[]>(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     return saved ? JSON.parse(saved) : [];
   });
+
   const [newId, setNewId] = useState<string | null>(null);
   const [deletedTodo, setDeletedTodo] = useState<{
     todo: Todo;
@@ -26,7 +31,7 @@ export function useTodos() {
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
-  }, [todos]);
+  }, [todos, STORAGE_KEY]);
 
   useEffect(() => {
     if (newId) {

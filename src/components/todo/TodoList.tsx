@@ -9,7 +9,11 @@ import { TodoStats } from "./TodoStats";
 import { TodoItem } from "./TodoItem";
 import { TodoToast } from "./TodoToast";
 
-export function TodoList() {
+interface TodoListProps {
+  userId: string;
+}
+
+export function TodoList({ userId }: TodoListProps) {
   const {
     todos,
     newId,
@@ -22,7 +26,7 @@ export function TodoList() {
     undoDelete,
     dismissToast,
     handleDragEnd,
-  } = useTodos();
+  } = useTodos(userId);
 
   return (
     <>
