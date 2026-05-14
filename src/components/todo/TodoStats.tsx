@@ -4,7 +4,7 @@ interface Props {
   todos: Todo[];
 }
 
-export function TodoStats({ todos }: Props) {
+export default function TodoStats({ todos }: Props) {
   if (todos.length === 0) return null;
 
   const completedCount = todos.filter((t) => t.completed).length;

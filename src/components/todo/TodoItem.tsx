@@ -10,7 +10,7 @@ interface Props {
   isNew: boolean;
 }
 
-export function TodoItem({ todo, onToggle, onDelete, onEdit, isNew }: Props) {
+export default function TodoItem({ todo, onToggle, onDelete, onEdit, isNew }: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
   const textareaRef = useRef<HTMLTextAreaElement>(null);

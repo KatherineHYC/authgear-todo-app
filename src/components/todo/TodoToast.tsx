@@ -6,7 +6,7 @@ interface Props {
   onDismiss: () => void;
 }
 
-export function TodoToast({ deletedTodo, onUndo, onDismiss }: Props) {
+export default function TodoToast({ deletedTodo, onUndo, onDismiss }: Props) {
   if (!deletedTodo) return null;
 
   return (

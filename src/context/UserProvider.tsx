@@ -20,7 +20,7 @@ interface UserContextValue {
 // eslint-disable-next-line react-refresh/only-export-components
 export const UserContext = createContext<UserContextValue | null>(null);
 
-export const UserContextProvider = ({ children }: { children: ReactNode }) => {
+function UserContextProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -100,6 +100,6 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
   );
-};
+}
 
 export default UserContextProvider;

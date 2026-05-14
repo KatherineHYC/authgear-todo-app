@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { useAuth } from "@/context/useAuth";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
-export const LandingPage = () => {
+export default function LandingPage() {
   const { isLoggedIn, login, isLoading } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
@@ -38,6 +38,4 @@ export const LandingPage = () => {
       </button>
     </div>
   );
-};
-
-export default LandingPage;
+}

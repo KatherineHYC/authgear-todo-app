@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "@/context/useAuth";
 
-export const Navbar = () => {
+export default function Navbar() {
   const { isLoggedIn, logout, openSettings } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -82,6 +82,4 @@ export const Navbar = () => {
       </div>
     </header>
   );
-};
-
-export default Navbar;
+}

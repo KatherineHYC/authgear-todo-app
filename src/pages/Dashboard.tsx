@@ -1,8 +1,8 @@
 import { useAuth } from "@/context/useAuth";
-import { TodoList } from "@/components/todo/TodoList";
+import TodoList from "@/components/todo/TodoList";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
-export const Dashboard = () => {
+export default function Dashboard() {
   const { userInfo } = useAuth();
 
   if (!userInfo) return <LoadingSpinner />;
@@ -17,6 +17,4 @@ export const Dashboard = () => {
       <TodoList userId={userInfo.sub} />
     </div>
   );
-};
-
-export default Dashboard;
+}

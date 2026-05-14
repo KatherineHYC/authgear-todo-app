@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import authgear from "@authgear/web";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
-const AuthRedirect = () => {
+export default function AuthRedirect() {
   const usedToken = useRef(false);
   const navigate = useNavigate();
 
@@ -23,6 +23,4 @@ const AuthRedirect = () => {
   }, [navigate]);
 
   return <LoadingSpinner message="Completing authentication..." />;
-};
-
-export default AuthRedirect;
+}

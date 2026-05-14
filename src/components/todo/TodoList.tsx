@@ -4,16 +4,16 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { useTodos } from "@/hooks/useTodos";
-import { TodoForm } from "./TodoForm";
-import { TodoStats } from "./TodoStats";
-import { TodoItem } from "./TodoItem";
-import { TodoToast } from "./TodoToast";
+import TodoForm from "./TodoForm";
+import TodoStats from "./TodoStats";
+import TodoItem from "./TodoItem";
+import TodoToast from "./TodoToast";
 
 interface TodoListProps {
   userId: string;
 }
 
-export function TodoList({ userId }: TodoListProps) {
+export default function TodoList({ userId }: TodoListProps) {
   const {
     todos,
     newId,

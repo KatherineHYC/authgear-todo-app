@@ -4,7 +4,7 @@ interface Props {
   onAdd: (text: string) => void;
 }
 
-export function TodoForm({ onAdd }: Props) {
+export default function TodoForm({ onAdd }: Props) {
   const [input, setInput] = useState("");
 
   function handleSubmit(e: FormEvent) {
