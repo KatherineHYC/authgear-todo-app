@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer components {
+  .skip-to-content {
+    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-slate-800 focus:shadow;
+  }
+}
+
 @theme {
   --color-primary: #58452c;
   --color-btn-bg: #7d6340;

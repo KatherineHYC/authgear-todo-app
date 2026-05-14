@@ -4,10 +4,7 @@ import Navbar from "./Navbar";
 export default function MainLayout() {
   return (
     <div className="min-h-screen bg-[#F9F6E5] flex flex-col">
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-slate-800 focus:shadow"
-      >
+      <a href="#main-content" className="skip-to-content">
         Skip to main content
       </a>
 
