@@ -16,13 +16,11 @@ export default function LandingPage() {
   if (isLoggedIn) return null;
   return (
     <div className="text-center py-20">
-      <div className="flex items-center justify-center mx-auto mb-6">
-        <img
-          src="/illustration_checklist.svg"
-          alt="Todo List Logo"
-          className="object-contain w-64"
-        />
-      </div>
+      <img
+        src="/illustration_checklist.svg"
+        alt="Todo List Logo"
+        className="mx-auto mb-6 block w-64 object-contain"
+      />
       <h2 className="text-2xl font-semibold text-primary mb-2">
         Organize Your Daily Life
       </h2>
