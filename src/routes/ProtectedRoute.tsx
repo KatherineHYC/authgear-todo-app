@@ -6,7 +6,7 @@ export default function ProtectedRoute() {
   const { isLoggedIn, isLoading } = useAuth();
 
   if (isLoading) {
-    return <LoadingSpinner message="Completing authentication..." />;
+    return <LoadingSpinner message="Checking session..." />;
   }
 
   if (!isLoggedIn) {
