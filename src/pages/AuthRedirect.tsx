@@ -11,6 +11,8 @@ export default function AuthRedirect() {
     async function updateToken() {
       try {
         await authgear.finishAuthentication();
+      } catch (e) {
+        console.error("Auth failed:", e);
       } finally {
         navigate("/", { replace: true });
       }
@@ -18,7 +20,7 @@ export default function AuthRedirect() {
 
     if (!usedToken.current) {
       usedToken.current = true;
-      updateToken().catch((e) => console.error(e));
+      updateToken();
     }
   }, [navigate]);
 
